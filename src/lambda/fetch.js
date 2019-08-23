@@ -5,7 +5,9 @@ exports.handler = function (event, context, callback) {
     const apiRoot = "https://api.unsplash.com"
     const accessKey = process.env.ACCESS_KEY || config.accessKey
 
-    const doggoEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='3816141,1154337,1254279'`
+    const doggoEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&query=girls`
+
+    // const doggoEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='3816141,1154337,1254279'`
     console.log(doggoEndpoint)
     axios.get(doggoEndpoint).then(res => {
         callback(null, {
